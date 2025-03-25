@@ -5,6 +5,8 @@ import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
 import { useRecipeStore } from "./components/recipeStore";
 import recipeDetails from "./components/recipeDetails";
+import deleteRecipeButton from "./components/deleteRecipeButton";
+import editRecipeForm from "./components/editRecipeForm";
 
 function App() {
   const [count, setCount] = useState(0);
