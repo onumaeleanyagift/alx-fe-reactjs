@@ -1,6 +1,6 @@
 import create from "zustand";
 
-const useRecipestore = create((set) => ({
+const useRecipeStore = create((set) => ({
   recipes: [],
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipes] })),
