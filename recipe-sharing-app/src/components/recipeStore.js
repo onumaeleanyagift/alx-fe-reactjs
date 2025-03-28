@@ -15,6 +15,20 @@ const useRecipeStore = create((set) => ({
       instructions: "Fry rice with vegetables and egg.",
     },
   ],
+
+  recipes: [],
+  searchTerm: "",
+  setSearchTerm: (term) => set({ searchTerm: term }),
+
+
+  filteredRecipes: [],
+  filterRecipes: () =>
+    set((state) => ({
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      ),
+    })),
+
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipes] })),
   setRecipes: (recipes) => set({ recipes }),

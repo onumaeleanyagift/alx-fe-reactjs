@@ -7,6 +7,7 @@ import { useRecipeStore } from "./components/recipeStore";
 import recipeDetails from "./components/recipeDetails";
 import deleteRecipeButton from "./components/deleteRecipeButton";
 import editRecipeForm from "./components/editRecipeForm";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +25,11 @@ function App() {
       <>
         <Router>
           <h1>Recipe Manager</h1>
+          <div>
+            <h1>Recipe Finder</h1>
+            <SearchBar />
+            <RecipeList />
+          </div>
           <Routes>
             <Route path="/" element={<RecipeList recipes={recipes} />} />
             <Route
