@@ -8,6 +8,8 @@ import recipeDetails from "./components/recipeDetails";
 import deleteRecipeButton from "./components/deleteRecipeButton";
 import editRecipeForm from "./components/editRecipeForm";
 import SearchBar from "./components/SearchBar";
+import RecommendationsList from "./components/RecommendationsList";
+import FavoritesList from "./components/FavoritesList";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -60,6 +62,11 @@ function App() {
         <AddRecipeForm />
         <RecipeList />
         <useRecipeStore />
+        <div>
+          <h1>Recipe App</h1>
+          <FavoritesList />
+          <RecommendationsList />
+        </div>
       </>
     );
   };
