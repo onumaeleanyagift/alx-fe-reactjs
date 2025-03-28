@@ -3,7 +3,8 @@ import recipeDetails from "./recipeDetails";
 
 const DeleteRecipeButton = ({ recipeDetails, onDeleteRecipe }) => {
     const navigate = useNavigate();
-    const { deleteRecipe } = useRecipeStore((state) => state.deleteRecipe);
+    const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
+    const recipeDetails = useRecipeStore((state) => state.recipeDetails);
     
     const handleDelete = () => {
         deleteRecipe(recipeDetails);
