@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const EditRecipeForm = ({ recipes, onUpdateRecipe }) => {
   const { id } = useParams();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const { recipes, updatedRecipe } = useRecipeStore();
 
   const recipe = recipes.find((r) => r.id === parseInt(id));
 
@@ -15,8 +16,8 @@ const EditRecipeForm = ({ recipes, onUpdateRecipe }) => {
   const [ingredients, setIngredients] = useState(recipe.ingredients.join(", "));
   const [instructions, setInstructions] = useState(recipe.instructions);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const updatedRecipe = {
       ...recipe,
       name,
