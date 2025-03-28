@@ -22,4 +22,4 @@ const RecipeDetails = ({recipeDetails}) => {
 };
 
 
-export default recipeDetails;
+export default RecipeDetails;
