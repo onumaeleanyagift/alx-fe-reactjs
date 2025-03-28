@@ -12,6 +12,7 @@ const RecipeDetails = ({recipeDetails}) => {
         <p>{recipe.description}</p>
         <Link to="/">Back to Recipes</Link>
         <Link to={`/edit/${recipe.id}`}>Edit Recipe</Link>
+
         <DeleteRecipeButton
           recipeId={recipe.id}
           onDeleteRecipe={handleDelete}
