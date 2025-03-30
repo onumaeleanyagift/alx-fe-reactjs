@@ -13,7 +13,10 @@ function PostsComponent() {
     "posts",
     fetchPosts,
     {
-      staleTime: 5000, // Cache data for 5 seconds
+      staleTime: 5000, 
+      cacheTime: 1000 * 60 * 5, 
+      refetchOnWindowFocus: false,
+      keepPreviousData: true, 
     }
   );
 
