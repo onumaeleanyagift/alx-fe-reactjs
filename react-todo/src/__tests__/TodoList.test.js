@@ -18,6 +18,7 @@ describe("TodoList Component", () => {
     fireEvent.click(addButton);
 
     expect(screen.getByText("New Task")).toBeInTheDocument();
+    expect(input.value).toBe("");
   });
 
   test("toggles a todo completion state", () => {
@@ -34,9 +35,20 @@ describe("TodoList Component", () => {
   test("deletes a todo", () => {
     render(<TodoList />);
     const todoItem = screen.getByText("Learn React");
-    const deleteButtons = screen.getAllByText("Delete");
+    const deleteButton = todoItem.nextSibling;
 
-    fireEvent.click(deleteButtons[0]);
+    fireEvent.click(deleteButton);
     expect(screen.queryByText("Learn React")).not.toBeInTheDocument();
+  });
+
+  test("does not add an empty todo", () => {
+    render(<TodoList />);
+    const input = screen.getByRole("textbox");
+    const addButton = screen.getByText("Add");
+
+    fireEvent.change(input, { target: { value: "   " } });
+    fireEvent.click(addButton);
+
+    expect(screen.queryByText("   ")).not.toBeInTheDocument();
   });
 });
