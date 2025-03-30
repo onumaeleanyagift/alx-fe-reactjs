@@ -35,7 +35,7 @@ const FormikForm = () => {
             <Field
               type="text"
               name="username"
-              value={values.username}
+              value={username}
               onChange={(e) => {
                 handleChange(e);
                 setFormData({ ...formData, username: e.target.value });
@@ -54,7 +54,7 @@ const FormikForm = () => {
             <Field
               type="email"
               name="email"
-              value={values.email}
+              value={email}
               onChange={(e) => {
                 handleChange(e);
                 setFormData({ ...formData, email: e.target.value });
@@ -69,7 +69,7 @@ const FormikForm = () => {
             <Field
               type="password"
               name="password"
-              value={values.password}
+              value={password}
               onChange={(e) => {
                 handleChange(e);
                 setFormData({ ...formData, password: e.target.value });
