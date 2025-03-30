@@ -1,18 +1,24 @@
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 
 const fetchPosts = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!res.ok) {
+    throw new Error("Network response was not ok");
+  }
   return res.json();
 };
 
 function PostsComponent() {
-  const queryClient = useQueryClient();
-  const { data, isError, isLoading, refetch } = useQuery("posts", fetchPosts, {
-    staleTime: 5000, // Cache data for 5 seconds
-  });
+  const { data, isError, error, isLoading, refetch } = useQuery(
+    "posts",
+    fetchPosts,
+    {
+      staleTime: 5000, // Cache data for 5 seconds
+    }
+  );
 
   if (isLoading) return <p>Loading posts...</p>;
-  if (isError) return <p>Error loading posts: {isError.message}</p>;
+  if (isError) return <p>Error loading posts: {error.message}</p>;
 
   return (
     <div>
