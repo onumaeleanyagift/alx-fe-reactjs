@@ -18,7 +18,19 @@ const FormikForm = () => {
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
+    let newErrors = {};
+    if (!username) newErrors.username = "Username is required";
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setSubmitting(false);
+      return;
+    }
+
     console.log("Form submitted:", values);
+    setErrors({});
     setSubmitting(false);
   };
 
